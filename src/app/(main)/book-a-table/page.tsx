@@ -1,7 +1,5 @@
 
 import BookingForm from "@/components/Checkout/FindTable";
-import ContactForm from "@/components/Contact/ContactForm";
-import LocationComponent from "@/components/Contact/LocationMap";
 import { generateDynamicMetadata } from "@/metadata/generateMetadata";
 
 export async function generateMetadata() {

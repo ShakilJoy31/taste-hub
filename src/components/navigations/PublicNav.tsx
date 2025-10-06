@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
-import navbarLogo from "../../../public/demo_logo_navber.png";
+import navbarLogo from "../../../public/Teste_Hub-ogo.png";
 import ThemeSwitcher from "../reusable-components/ThemeSwitcher";
 import LanguageSwitcher from "../reusable-components/LanguageSwitcher";
 import Button from "../reusable-components/Button";
@@ -151,7 +151,7 @@ export default function PublicNav() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
           onClick={() => router.push("/")}
-          className="cursor-pointer flex-shrink-0 w-32 md:w-40"
+          className="cursor-pointer flex-shrink-0 w-10 md:w-12 py-1"
         >
           <Image
             src={navbarLogo}

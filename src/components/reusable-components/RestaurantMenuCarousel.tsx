@@ -1,88 +1,16 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import { menuData } from "@/utils/constant/menuConstant";
 
-interface MenuItem {
-  id: number;
-  title: string;
-  subtitle: string;
-  image: string;
-  description: string;
-}
+
 
 const RestaurantMenuCarousel = () => {
-  const swiperRef = useRef<any>(null);
-
-  const menuData: MenuItem[] = [
-    {
-      id: 1,
-      title: "ITALIAN",
-      subtitle: "PASTA & RISOTTO",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
-      description: "Authentic Italian flavors"
-    },
-    {
-      id: 2,
-      title: "ASIAN",
-      subtitle: "SUSHI & NOODLES",
-      image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&h=600&fit=crop",
-      description: "Exotic Asian cuisine"
-    },
-    {
-      id: 3,
-      title: "MEXICAN",
-      subtitle: "TACOS & BURRITOS",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=600&fit=crop",
-      description: "Spicy Mexican delights"
-    },
-    {
-      id: 4,
-      title: "DESSERTS",
-      subtitle: "SWEET TREATS",
-      image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&h=600&fit=crop",
-      description: "Heavenly desserts"
-    },
-    {
-      id: 5,
-      title: "BEVERAGES",
-      subtitle: "COCKTAILS & WINES",
-      image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&h=600&fit=crop",
-      description: "Refreshing drinks"
-    },
-    {
-      id: 6,
-      title: "BEVERAGES",
-      subtitle: "COCKTAILS & WINES",
-      image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&h=600&fit=crop",
-      description: "Refreshing drinks"
-    },
-    {
-      id: 7,
-      title: "BEVERAGES",
-      subtitle: "COCKTAILS & WINES",
-      image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&h=600&fit=crop",
-      description: "Refreshing drinks"
-    },
-    {
-      id: 8,
-      title: "BEVERAGES",
-      subtitle: "COCKTAILS & WINES",
-      image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&h=600&fit=crop",
-      description: "Refreshing drinks"
-    },
-    {
-      id: 9,
-      title: "BEVERAGES",
-      subtitle: "COCKTAILS & WINES",
-      image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&h=600&fit=crop",
-      description: "Refreshing drinks"
-    }
-  ];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },

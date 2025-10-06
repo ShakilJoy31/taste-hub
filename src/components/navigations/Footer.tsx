@@ -99,7 +99,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="font-[GreatVibes] text-[#c9b48c] text-3xl"
         >
-          Fidalgo
+          Teste Hub
         </motion.h2>
 
         {/* Copyright */}

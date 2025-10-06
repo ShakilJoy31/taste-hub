@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import barImage from "../../../public/Product1.jpg";
-import dishImage from "../../../public/Product1.jpg";
+import barImage from "../../../public/restaurant-luxury-interior-design-dark-lightning.jpg";
+import dishImage from "../../../public/group-friends-having-lunch-together-restaurant.jpg";
 
 export default function GoalsHistory() {
   return (
@@ -27,7 +27,7 @@ export default function GoalsHistory() {
         </motion.div>
 
         {/* Right Side Text */}
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-12 px-4 pb-4 lg:px-0 lg:pb-0 ">
           {/* Goals & History */}
           <div>
             <motion.h2

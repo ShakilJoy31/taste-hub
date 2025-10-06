@@ -2,9 +2,9 @@
 
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import pastryImg from "../../../public/product2.jpg"; // replace with your real image
-import cakesImg from "../../../public/product2.jpg";  // replace with your real image
-import breadImg from "../../../public/product2.jpg";  // replace with your real image
+import pastryImg from "../../../public/fine-dining-grilled-steak-with-vegetables-restaurant-professional-gastronomy.jpg"; // replace with your real image
+import cakesImg from "../../../public/fried-meat-potatoes-with-glass-wine.jpg";  // replace with your real image
+import breadImg from "../../../public/side-view-chicken-kebab-lavash-served-with-fresh-herbs-onion-adjika-sauce.jpg";  // replace with your real image
 
 export default function WelcomeSection() {
 
@@ -84,7 +84,7 @@ const fadeUp: Variants = {
       </div>
 
       {/* Category Cards */}
-      <div className="container mx-auto px-6 md:px-12 mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="container mx-auto px-4 mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-12">
         {categories.map((cat, i) => (
           <motion.div
             key={cat.title}

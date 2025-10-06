@@ -47,18 +47,6 @@ export default function CheckoutForm() {
     }
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
   const inputVariants = {
     focus: { scale: 1.02, boxShadow: "0 0 0 2px rgba(59, 130, 246, 0.5)" }
   };
@@ -77,7 +65,7 @@ export default function CheckoutForm() {
             Complete Your Reservation
           </h1>
           <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
-            We're excited to host you! Please provide your details to confirm your table booking.
+            We&apos;re excited to host you! Please provide your details to confirm your table booking.
           </p>
         </motion.div>
 

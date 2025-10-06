@@ -3,39 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import bannerImage from "../../../public/4094.jpg";
+import { slides } from "@/utils/constant/bannerConstant";
 
-interface Slide {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  thumb: string;
-}
-
-const slides: Slide[] = [
-  {
-    id: 1,
-    title: "OUR BEST SPECIALTIES",
-    description: "Delicious and curated plates just for you.",
-    image: bannerImage.src,
-    thumb: bannerImage.src,
-  },
-  {
-    id: 2,
-    title: "EXQUISITE TASTES",
-    description: "Experience world-class dining experience.",
-    image: bannerImage.src,
-    thumb: bannerImage.src,
-  },
-  {
-    id: 3,
-    title: "CULINARY ART",
-    description: "Beautifully crafted dishes to inspire.",
-    image: bannerImage.src,
-    thumb: bannerImage.src,
-  }
-];
 
 export default function SpecialsShowcase() {
   const [current, setCurrent] = useState(0);
@@ -56,7 +25,7 @@ export default function SpecialsShowcase() {
 
   return (
     <section className="bg-[#0D2235]">
-      <div className="w-full min-h-screen flex flex-col lg:flex-row items-center justify-between container mx-auto px-4 py-8 lg:py-0">
+      <div className="w-full min-h-screen flex flex-col lg:flex-row items-center justify-between container mx-auto px-4 lg:py-0">
         
         {/* Left Section */}
         <div className="text-white w-full lg:w-1/3 text-center lg:text-left mb-8 lg:mb-0 order-3 lg:order-1 ">
@@ -79,7 +48,7 @@ export default function SpecialsShowcase() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -40 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-base sm:text-lg mb-6"
+              className="text-base sm:text-lg mb-6 mr-2 lg:mr-0"
             >
               {slides[current].description}
             </motion.p>
@@ -128,7 +97,7 @@ export default function SpecialsShowcase() {
         </div>
 
         {/* Middle Image */}
-        <div className="relative w-full lg:w-1/3 h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center order-1 lg:order-2 mb-8 lg:mb-0 pt-20 lg:pt-0">
+        <div className="relative w-full lg:w-1/3 h-[300px] sm:h-[400px] lg:h-[500px] block mx-auto order-1 lg:order-2 mb-8 lg:mb-0 pt-20 lg:pt-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={slides[current].id + "-img"}

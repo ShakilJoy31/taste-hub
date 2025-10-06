@@ -80,7 +80,7 @@ export default function BookingForm() {
                             transition={{ delay: 0.3 }}
                             className="text-center text-gray-300 mb-8"
                         >
-                            Select your details and we'll try to get the best seats for you.
+                            Select your details and we&apos;ll try to get the best seats for you.
                         </motion.p>
 
                         <form onSubmit={handleSubmit} className="space-y-6">

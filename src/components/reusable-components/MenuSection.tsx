@@ -59,7 +59,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ title, items }) => {
                 className="text-gray-800 font-medium pl-3"
                 whileHover={{ scale: 1.1, color: "#b45309" }}
               >
-                ${item.price}
+                ৳ {item.price}
               </motion.span>
             </div>
 
