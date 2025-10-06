@@ -3,7 +3,6 @@ import AboutSection from "@/components/AboutUs/AboutSection";
 import AboutBanner from "@/components/AboutUs/AboutUsBanner";
 import StatsSection from "@/components/AboutUs/StatsSection";
 import TeamSection from "@/components/AboutUs/TeamSection";
-import ValuesSection from "@/components/AboutUs/ValuesSection";
 import { generateDynamicMetadata } from "@/metadata/generateMetadata";
 
 export async function generateMetadata() {
@@ -24,7 +23,6 @@ const AboutPage = () => {
     <div className="bg-white dark:bg-gray-900">
         <AboutBanner />
         <AboutSection />
-        <ValuesSection />
         <StatsSection />
         <TeamSection />
     </div>

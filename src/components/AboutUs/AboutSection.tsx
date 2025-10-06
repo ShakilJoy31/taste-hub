@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 
-import kitchenImg from "../../../public/about-img-5.webp";
-import ingredientsImg from "../../../public/about-img-5.webp";
-import diningImg from "../../../public/about-img-5.webp";
-import chefImg from "../../../public/about-img-5.webp";
-import signatureImg from "../../../public/about-img-5.webp";
+import kitchenImg from "../../../public/clay-elliot-1by_GbwEMwc-unsplash.jpg";
+import ingredientsImg from "../../../public/fine-dining-grilled-steak-with-vegetables-restaurant-professional-gastronomy.jpg";
+import diningImg from "../../../public/delicious-taco-studio.jpg";
+import chefImg from "../../../public/about-author.webp";
+import signatureImg from "../../../public/author-signature.webp";
 import Heading from "../reusable-components/Heading";
 import Paragraph from "../reusable-components/Paragraph";
 

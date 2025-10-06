@@ -6,33 +6,37 @@ import Image from "next/image";
 import Heading from "../reusable-components/Heading";
 import Paragraph from "../reusable-components/Paragraph";
 import { RxInstagramLogo, RxLinkedinLogo, RxTwitterLogo } from "react-icons/rx";
+import chef1 from "../../../public/Chef/jesson-mata-I2Erl2cU_A4-unsplash.jpg"
+import chef2 from "../../../public/Chef/michael-wave-CYnQUywzBtI-unsplash.jpg"
+import chef3 from "../../../public/Chef/mohamed-nohassi-DdglEoIC2y4-unsplash.jpg"
+import chef4 from "../../../public/Chef/petr-sevcovic-e5Q5vWO55uU-unsplash.jpg"
 
 const team = [
   {
     name: "Marco Bellini",
     role: "Executive Chef & Founder",
-    image: "/team-chef-marco.jpg",
+    image: chef1.src,
     bio: "With over 20 years of culinary experience, Marco brings innovation and tradition to every dish.",
     social: { instagram: "#", twitter: "#", linkedin: "#" }
   },
   {
     name: "Sophie Chen",
     role: "Head Pastry Chef",
-    image: "/team-pastry-sophie.jpg",
+    image: chef2.src,
     bio: "Sophie's delicate touch transforms simple ingredients into extraordinary desserts.",
     social: { instagram: "#", twitter: "#", linkedin: "#" }
   },
   {
     name: "James Wilson",
     role: "Sommelier",
-    image: "/team-sommelier-james.jpg",
+    image: chef3.src,
     bio: "James curates our wine selection to perfectly complement each culinary creation.",
     social: { instagram: "#", twitter: "#", linkedin: "#" }
   },
   {
     name: "Maria Rodriguez",
     role: "Restaurant Manager",
-    image: "/team-manager-maria.jpg",
+    image: chef4.src,
     bio: "Maria ensures every guest experiences our signature hospitality and attention to detail.",
     social: { instagram: "#", twitter: "#", linkedin: "#" }
   }
