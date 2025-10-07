@@ -21,6 +21,7 @@ const fadeUp: Variants = {
     { title: "PASTRY", img: pastryImg },
     { title: "CAKES", img: cakesImg },
     { title: "BREAD", img: breadImg },
+    { title: "BREAD", img: breadImg },
   ];
 
   return (
@@ -84,7 +85,7 @@ const fadeUp: Variants = {
       </div>
 
       {/* Category Cards */}
-      <div className="container mx-auto px-4 mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-12">
+      <div className="container mx-auto px-4 mt-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-12">
         {categories.map((cat, i) => (
           <motion.div
             key={cat.title}
@@ -95,7 +96,7 @@ const fadeUp: Variants = {
             custom={i + 4}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 120 }}
-            className={`flex flex-col items-center ${i === 1 ? "mt-16" : ""}`}
+            className={`flex flex-col items-center ${i === 1 || i === 3 ? "mt-16" : ""}`}
           >
             {/* Image with arch/rounded top */}
             <div className={`overflow-hidden rounded-t-[220px] rounded-b-none shadow-lg`}>
@@ -104,7 +105,7 @@ const fadeUp: Variants = {
                 alt={cat.title}
                 width={400}
                 height={500}
-                className="w-full h-[650px] object-cover"
+                className="w-full h-[450px] 2xl:h-[550px] object-cover"
               />
             </div>
             {/* Title */}

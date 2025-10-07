@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaCalendarAlt, FaClock } from "react-icons/fa";
-import tableBookingBackgroundImage from "../../../public/home-banner3.jpg";
+import tableBookingBackgroundImage from "../../../public/drinks-glasses-new-year-eve-celebration.jpg";
 import { useRouter } from "next/navigation";
 
 export default function BookingForm() {
@@ -157,7 +157,7 @@ export default function BookingForm() {
                                 whileTap={{ scale: 0.97 }}
                                 transition={{ duration: 0.3 }}
                                 type="submit"
-                                className="w-full border border-orange-500 text-orange-300 py-3 rounded-sm mt-4 hover:bg-orange-500 hover:text-white transition-colors duration-300"
+                                className="w-full border hover:cursor-pointer border-orange-500 text-orange-300 py-3 rounded-sm mt-4 hover:bg-orange-500 hover:text-white transition-colors duration-300"
                             >
                                 FIND A TABLE
                             </motion.button>

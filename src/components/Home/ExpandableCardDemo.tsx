@@ -7,6 +7,7 @@ import foodImage2 from '../../../public/tareq-lpIq5XJ30fA-unsplash.jpg'
 import foodImage3 from '../../../public/wooden-board-with-cooked-meat.jpg'
 import foodImage4 from '../../../public/delicious-volcano-chocolate-cake.jpg'
 import foodImage5 from '../../../public/front-view-cheese-plate-pita-bread-with-grapes-olives-honey-tomatoes.jpg'
+import { usePathname } from "next/navigation";
 
 // Custom hook for outside click detection
 const useOutsideClick = (ref, callback) => {
@@ -25,6 +26,7 @@ const useOutsideClick = (ref, callback) => {
 };
 
 export function ExpandableCardDemo() {
+    const pathname = usePathname();
     const [active, setActive] = useState(null);
     const ref = useRef(null);
     const id = useId();
@@ -148,7 +150,7 @@ export function ExpandableCardDemo() {
                         layoutId={`card-${card.title}-${id}`}
                         key={`card-${card.title}-${id}`}
                         onClick={() => setActive(card)}
-                        className="py-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 transition-all px-0 lg:px-2"
+                        className="py-4 flex flex-col md:flex-row justify-between items-center hover:border-orange-500 dark:hover:bg-neutral-800 rounded-xl cursor-pointer border border-transparent dark:hover:border-neutral-700 transition-all px-0 lg:px-2"
                     >
                         <div className="flex gap-4 flex-col md:flex-row items-center md:items-start">
                             <motion.div layoutId={`image-${card.title}-${id}`}>
@@ -163,13 +165,13 @@ export function ExpandableCardDemo() {
                             <div className="text-center md:text-left">
                                 <motion.h3
                                     layoutId={`title-${card.title}-${id}`}
-                                    className="font-medium text-neutral-800 dark:text-neutral-200 text-lg"
+                                    className={`font-medium ${pathname === '/menus' ? 'text-white' : 'text-neutral-800'} dark:text-neutral-200 text-lg`}
                                 >
                                     {card.title}
                                 </motion.h3>
                                 <motion.p
                                     layoutId={`description-${card.description}-${id}`}
-                                    className="text-neutral-600 dark:text-neutral-400 text-sm"
+                                    className={`${pathname === '/menus' ? 'text-gray-300' : 'text-neutral-600'} dark:text-neutral-400 text-sm`}
                                 >
                                     {card.description}
                                 </motion.p>

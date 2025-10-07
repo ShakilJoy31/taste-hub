@@ -1,10 +1,11 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { RxReset } from "react-icons/rx";
-import { FiChevronDown, FiSearch } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
 import InputField from "../ui/input";
 import Button from "./Button";
 import { LANGS } from "@/utils/constant/languageConstant";
+import { IoLanguage } from "react-icons/io5";
 
 // types ...
 declare global {
@@ -128,32 +129,18 @@ export default function LanguageSwitcher() {
       <div id="google_translate_element" className="hidden" />
 
       <div className="relative">
-        <div className="flex items-center gap-1 bg-white dark:bg-gray-800 border border-cyan-500 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
+        <div className="flex items-center gap-1 relative dark:bg-gray-800 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
           <Button
             type="button"
             onClick={() => setIsOpen((o) => !o)}
-            className="text-gray-800 dark:text-gray-100 hover:cursor-pointer py-2 pl-3 pr-2 w-32 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150 rounded-l-lg"
-            aria-label="Select language"
-          >
+            className="text-gray-800 dark:text-gray-100 bg-gray-100 hover:cursor-pointer py-2 pl-3 pr-2 w-12 flex justify-between items-center dark:bg-gray-700 transition-colors duration-150 rounded-lg"
+            title="Select Language"
+            aria-label="Select language">
             <span className="truncate text-sm font-medium">
-              {LANGS.find(
-                (lang) => lang.code.toLowerCase() === selectedLang?.toLowerCase()
-              )?.label || "Select Language"}
+              <IoLanguage className="w-5 h-5"></IoLanguage>
             </span>
-            <FiChevronDown 
-              className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-            />
           </Button>
-
-          <Button
-            type="button"
-            onClick={() => translateTo("en")}
-            className="p-2 hover:bg-gray-100 hover:cursor-pointer dark:hover:bg-gray-700 border-l border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150 rounded-r-lg"
-            aria-label="Reset to English"
-            title="Reset to English"
-          >
-            <RxReset size={18} />
-          </Button>
+          <RxReset title="Reset to English" onClick={() => translateTo("en")} className="absolute rounded-lg hover:cursor-pointer top-0 right-0 hover:bg-gray-200" size={18} />
         </div>
 
         {isOpen && (

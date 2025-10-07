@@ -78,6 +78,7 @@ const getDesktopLinkClasses = (isActive: boolean, isScrolled: boolean, pathname:
     "/wishlist",
     "/products",
     "/checkout",
+   
   ];
 
   // check if it's a special path or a product-details dynamic route

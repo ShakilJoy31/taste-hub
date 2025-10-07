@@ -1,14 +1,35 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { slides } from "@/utils/constant/bannerConstant";
 
-
 export default function SpecialsShowcase() {
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
+  const thumbnailContainerRef = useRef<HTMLDivElement>(null);
+  const thumbnailRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Scroll to active thumbnail
+useEffect(() => {
+  const activeThumbnail = thumbnailRefs.current[current];
+  const container = thumbnailContainerRef.current;
+
+  if (activeThumbnail && container) {
+    // Calculate absolute scrollLeft so active thumbnail goes to center
+    const scrollLeft =
+      activeThumbnail.offsetLeft -
+      container.clientWidth / 2 +
+      activeThumbnail.clientWidth / 2;
+
+    container.scrollTo({
+      left: scrollLeft,
+      behavior: "smooth",
+    });
+  }
+}, [current]);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -160,68 +181,70 @@ export default function SpecialsShowcase() {
           </AnimatePresence>
         </div>
 
-        {/* Right Thumbnails */}
-        <div className="flex justify-center lg:justify-end gap-4 w-full lg:w-1/3 order-2 lg:order-3">
-          {slides.map((s, index) => (
-            <motion.div
-              key={s.id}
-              onClick={() => {
-                setCurrent(index);
-                setProgress(0);
-              }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 rounded-full flex items-center justify-center cursor-pointer"
-            >
+        {/* Right Thumbnails - Horizontal Scrolling */}
+        <div 
+          ref={thumbnailContainerRef}
+          className="w-full lg:w-1/3 order-2 lg:order-3 overflow-x-auto py-4 scrollbar-hide "
+        >
+          <div className="flex items-center justify-end gap-4 min-w-max px-4 lg:px-0">
+            {slides.map((s, index) => (
               <motion.div
-                whileHover={{
-                  boxShadow: "0 0 20px rgba(255,255,255,0.5)",
-                  transition: { duration: 0.3 }
+                key={s.id}
+                ref={(el) => {
+                  thumbnailRefs.current[index] = el;
                 }}
-                className="w-full h-full rounded-full p-2"
+                onClick={() => {
+                  setCurrent(index);
+                  setProgress(0);
+                }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center cursor-pointer flex-shrink-0"
               >
-                <Image
-                  src={s.thumb}
-                  alt={s.title}
-                  width={60}
-                  height={60}
-                  className="rounded-full w-full h-full object-cover"
-                />
+                <motion.div className="w-full h-full rounded-full p-1">
+                  <Image
+                    src={s.thumb}
+                    alt={s.title}
+                    width={60}
+                    height={60}
+                    className="rounded-full w-full h-full object-cover"
+                  />
+                </motion.div>
+                
+                {/* Progress Ring */}
+                {index === current && (
+                  <motion.div
+                    className="absolute top-0 left-0 w-full h-full rounded-full border-2 border-white"
+                    style={{
+                      clipPath: `inset(${100 - progress}% 0 0 0)`,
+                    }}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+                
+                {/* Active indicator glow */}
+                {index === current && (
+                  <motion.div
+                    className="absolute inset-0 rounded-full border-2 border-transparent"
+                    animate={{
+                      boxShadow: [
+                        "0 0 0px rgba(255,255,255,0.5)",
+                        "0 0 15px rgba(255,255,255,0.8)",
+                        "0 0 0px rgba(255,255,255,0.5)",
+                      ]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: "loop"
+                    }}
+                  />
+                )}
               </motion.div>
-              
-              {/* Progress Ring */}
-              {index === current && (
-                <motion.div
-                  className="absolute top-0 left-0 w-full h-full rounded-full border-2 border-white"
-                  style={{
-                    clipPath: `inset(${100 - progress}% 0 0 0)`,
-                  }}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              )}
-              
-              {/* Active indicator glow */}
-              {index === current && (
-                <motion.div
-                  className="absolute inset-0 rounded-full border-2 border-transparent"
-                  animate={{
-                    boxShadow: [
-                      "0 0 0px rgba(255,255,255,0.5)",
-                      "0 0 15px rgba(255,255,255,0.8)",
-                      "0 0 0px rgba(255,255,255,0.5)",
-                    ]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: "loop"
-                  }}
-                />
-              )}
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
